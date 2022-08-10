@@ -16,11 +16,11 @@ contract TheKoreans1945 is ERC721G {
         super._mintBatch(to, tokenIds);
     }
 
-    function burn(uint256 ) external override {
+    function burn(uint256) external override {
         revert("UNAVAILABLE");
     }
 
-    function burnBatch(address , uint256[] calldata ) external override {
+    function burnBatch(address, uint256[] calldata) external override {
         revert("UNAVAILABLE");
     }
 }
