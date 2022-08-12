@@ -48,19 +48,15 @@ contract TheKoreans1945Minter is Ownable {
         emit Airdrop(users, startId, startId + users.length - 1);
     }
 
-    function mintByNFTWhitelist(address nft) external {
-        require(isListedNFT[nft], "INVALID_NFT_ADDRESS");
-        require(mintedAmount[msg.sender][nft]++ < IERC721(nft).balanceOf(msg.sender), "OUT_OF_RANGE");
-        _mint();
-    }
+    function mint(address nft) external {
+        if (nft == address(0)) {
+            require(isListedUser[msg.sender], "UNAUTHORIZED");
+            delete isListedUser[msg.sender];
+        } else {
+            require(isListedNFT[nft], "INVALID_NFT_ADDRESS");
+            require(mintedAmount[msg.sender][nft]++ < IERC721(nft).balanceOf(msg.sender), "OUT_OF_RANGE");
+        }
 
-    function mintByUserWhitelist() external {
-        require(isListedUser[msg.sender], "UNAUTHORIZED");
-        delete isListedUser[msg.sender];
-        _mint();
-    }
-
-    function _mint() internal {
         uint256 tokenId = KOREANS.totalSupply();
         KOREANS.mint(msg.sender, tokenId);
         emit Mint(msg.sender, tokenId);
