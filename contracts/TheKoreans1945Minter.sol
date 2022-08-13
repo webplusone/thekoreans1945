@@ -74,7 +74,6 @@ contract TheKoreans1945Minter is Ownable {
                 delete isListedUser[msg.sender];
             } else {
                 require(nftForPreMint[nft], "NOT_YET_WITH_THIS_NFT");
-                require(isListedNFT[nft], "INVALID_NFT_ADDRESS");
                 uint256 _mintedAmount = mintedAmount[msg.sender][nft]++;
                 require(_mintedAmount == 0, "ONLY_1_NFT_IN_PREMINT_TIME");
                 require(_mintedAmount < IERC721(nft).balanceOf(msg.sender), "OUT_OF_RANGE");
