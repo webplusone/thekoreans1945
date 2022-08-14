@@ -73,6 +73,7 @@ contract TheKoreans1945Minter is Ownable {
                 require(isListedUser[msg.sender], "UNAUTHORIZED");
                 delete isListedUser[msg.sender];
             } else {
+                require(IERC721G(nft).totalSupply() < 945);
                 require(nftForPreMint[nft], "NOT_YET_WITH_THIS_NFT");
                 uint256 _mintedAmount = mintedAmount[msg.sender][nft]++;
                 require(_mintedAmount == 0, "ONLY_1_NFT_IN_PREMINT_TIME");
