@@ -1,5 +1,9 @@
 # thekoreans1945
 
+## Mainnet
+- TheKoreans1945: [0xA7298E98362625b65d08bB4C25992C503A0d48db](https://etherscan.io/address/0xA7298E98362625b65d08bB4C25992C503A0d48db)
+- TheKoreans1945Minter: [0x564207a9cFb374157bfC6AC7472d8782bBc0F4D9](https://etherscan.io/address/0x564207a9cFb374157bfC6AC7472d8782bBc0F4D9)
+
 ## 주의사항
 1. 배포시 파라미터는 순서대로
 
@@ -59,3 +63,6 @@
         F는 1차 민팅에서 제네시스만 사용했기에, 2차에서 슈퍼노바에서 기인한 1개 추가로 민팅 가능.
         
         G는 1차 민팅 참여 불가고, 2차 민팅에서 2개까지 민팅 가능.
+
+## License
+[MIT](LICENSE)
